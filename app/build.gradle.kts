@@ -7,11 +7,11 @@ plugins {
 }
 
 android {
-	namespace = "com.davidwskang.template"
+	namespace = "com.davidwskang.${rootProject.name}"
 	compileSdk = 33
 
 	defaultConfig {
-		applicationId = "com.davidwskang.template"
+		applicationId = "com.davidwskang.${rootProject.name}"
 		minSdk = 23
 		targetSdk = 33
 		versionCode = 1
