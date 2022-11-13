@@ -1,4 +1,4 @@
-package com.davidwwkang.template
+package com.davidwskang.template
 
 import org.junit.Test
 
