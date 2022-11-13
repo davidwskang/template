@@ -1,6 +1,9 @@
 plugins {
-	id("com.android.application")
-	id("org.jetbrains.kotlin.android")
+	alias(libs.plugins.android.application)
+	alias(libs.plugins.kotlin.android)
+	alias(libs.plugins.kotlin.kapt)
+	alias(libs.plugins.hilt)
+	alias(libs.plugins.realm)
 }
 
 android {
@@ -24,8 +27,10 @@ android {
 		named("release") {
 			isMinifyEnabled = false
 			setProguardFiles(
-				listOf(getDefaultProguardFile("proguard-android-optimize.txt"),
-					"proguard-rules.pro")
+				listOf(
+					getDefaultProguardFile("proguard-android-optimize.txt"),
+					"proguard-rules.pro"
+				)
 			)
 		}
 	}
@@ -34,14 +39,15 @@ android {
 		targetCompatibility = JavaVersion.VERSION_11
 	}
 	kotlinOptions {
-		jvmTarget = "1.8"
+		jvmTarget = "11"
 	}
 	buildFeatures {
 		compose = true
 	}
 	composeOptions {
-		kotlinCompilerExtensionVersion = "1.1.1"
+		kotlinCompilerExtensionVersion = libs.versions.composecompiler.get()
 	}
+
 	packagingOptions {
 		resources {
 			excludes += "/META-INF/{AL2.0,LGPL2.1}"
@@ -50,17 +56,49 @@ android {
 }
 
 dependencies {
-	val compose_ui_version = "1.1.1"
-	implementation("androidx.core:core-ktx:1.9.0")
-	implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.5.1")
-	implementation("androidx.activity:activity-compose:1.6.1")
-	implementation("androidx.compose.ui:ui:$compose_ui_version")
-	implementation("androidx.compose.ui:ui-tooling-preview:$compose_ui_version")
-	implementation("androidx.compose.material:material:1.3.1")
-	testImplementation("junit:junit:4.13.2")
-	androidTestImplementation("androidx.test.ext:junit:1.1.4")
-	androidTestImplementation("androidx.test.espresso:espresso-core:3.5.0")
-	androidTestImplementation("androidx.compose.ui:ui-test-junit4:$compose_ui_version")
-	debugImplementation("androidx.compose.ui:ui-tooling:$compose_ui_version")
-	debugImplementation("androidx.compose.ui:ui-test-manifest:$compose_ui_version")
+	implementation(libs.androidx.lifecycle.viewmodel.ktx)
+
+	implementation(libs.androidx.activity.compose)
+
+	implementation(libs.androidx.navigation.compose)
+
+	implementation(libs.androidx.emoji)
+
+	implementation(platform(libs.compose.bom))
+	implementation(libs.compose.foundation.foundation)
+	implementation(libs.compose.foundation.layout)
+	implementation(libs.compose.material.material)
+	implementation(libs.compose.material.iconsext)
+	implementation(libs.compose.animation.animation)
+	implementation(libs.compose.ui.tooling)
+
+	implementation(libs.accompanist.navigation.animation)
+	implementation(libs.accompanist.navigation.material)
+
+	implementation(libs.threeTenAbp)
+
+	implementation(libs.timber)
+
+	implementation(libs.kotlin.coroutines.android)
+	implementation(libs.kotlin.coroutines.core)
+	implementation(libs.kotlin.coroutines.core.mt)
+
+	implementation(libs.realm)
+
+	implementation(libs.ktor.core)
+	implementation(libs.ktor.okhttp)
+
+	implementation(libs.okhttp.loggingInterceptor)
+
+	implementation(libs.hilt.library)
+	implementation(libs.hilt.compose)
+	kapt(libs.hilt.compiler)
+
+	implementation(libs.koin.core)
+	implementation(libs.koin.android)
+
+	testImplementation(libs.junit)
+	testImplementation(libs.robolectric)
+	testImplementation(libs.androidx.test.core)
+	testImplementation(libs.androidx.test.rules)
 }
