@@ -7,11 +7,11 @@ plugins {
 }
 
 android {
-	namespace = "com.davidwwkang.pokeshop"
+	namespace = "com.davidwwkang.template"
 	compileSdk = 33
 
 	defaultConfig {
-		applicationId = "com.davidwwkang.pokeshop"
+		applicationId = "com.davidwwkang.template"
 		minSdk = 23
 		targetSdk = 33
 		versionCode = 1

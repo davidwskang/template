@@ -1,4 +1,4 @@
-package com.davidwwkang.pokeshop
+package com.davidwwkang.template
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -10,14 +10,14 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import com.davidwwkang.pokeshop.ui.theme.PokeshopTheme
+import com.davidwwkang.template.ui.theme.TemplateTheme
 
 class MainActivity : ComponentActivity() {
 
 	override fun onCreate(savedInstanceState: Bundle?) {
 		super.onCreate(savedInstanceState)
 		setContent {
-			PokeshopTheme {
+			TemplateTheme {
 				// A surface container using the 'background' color from the theme
 				Surface(modifier = Modifier.fillMaxSize(),
 					color = MaterialTheme.colors.background) {
@@ -36,7 +36,7 @@ fun Greeting(name: String) {
 @Preview(showBackground = true)
 @Composable
 fun DefaultPreview() {
-	PokeshopTheme {
+	TemplateTheme {
 		Greeting("Android")
 	}
 }

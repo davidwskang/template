@@ -16,5 +16,5 @@ dependencyResolutionManagement {
 	}
 }
 
-rootProject.name = "pokeshop"
+rootProject.name = "template"
 include(":app")

@@ -1,4 +1,4 @@
-package com.davidwwkang.pokeshop
+package com.davidwwkang.template
 
 import org.junit.Test
 

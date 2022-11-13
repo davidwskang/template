@@ -1,4 +1,4 @@
-package com.davidwwkang.pokeshop.ui.theme
+package com.davidwwkang.template.ui.theme
 
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Shapes
